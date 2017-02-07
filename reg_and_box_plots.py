@@ -20,7 +20,7 @@ df = pd.DataFrame({'Value': r1,"Type":c1})
 df2 = pd.DataFrame({'Value': r2,"Type":c2})
 
 # make one dateframe
-df = df.append(df2,ignore_index=True)
+df = df.append(df2)
 
 print(df.head())
 print(df.info())
