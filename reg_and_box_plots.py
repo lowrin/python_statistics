@@ -2,14 +2,14 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-sns.set(style="whitegrid")
+sns.set(style="ticks", color_codes=True)
 
 
 from scipy import stats
 
 # input data
-r1 = np.array([4,3,2,5,5,3])
-r2 = np.array([1,2,3,0,0,2])
+r1 = np.array([78, 24, 64, 45, 64, 52, 30, 50, 64, 50, 78, 22, 84, 40, 90, 72])
+r2 = np.array([78, 24, 62, 48, 68, 56, 25, 44, 56, 40, 68, 36, 68, 20, 58, 32])
 
 # constant value in every row
 c1 = np.full(len(r1),"r1",dtype=object)
@@ -34,9 +34,11 @@ sns.swarmplot(data=df,x="Type", y="Value",color=".25",ax=axs[2])
 
 
 
-sns.regplot(x=df[df['Type']=="r1"].index.values,y=df[df['Type']=="r1"].Value, data=df, ax=axs[0])
-sns.regplot(x=df[df['Type']=="r2"].index.values,y=df[df['Type']=="r2"].Value, data=df, ax=axs[1])
+sns.regplot(x=df[df['Type']=="r1"].index.values,y=df[df['Type']=="r1"].Value, data=df, fit_reg=False, ax=axs[0])
+sns.regplot(x=df[df['Type']=="r2"].index.values,y=df[df['Type']=="r2"].Value, data=df, fit_reg=False, ax=axs[1])
 ax=axs[1].set_title("Regplot R2")
 ax=axs[0].set_title("Regplot R1")
 ax=axs[2].set_title("Boxplot")
+
+
 sns.plt.show()
